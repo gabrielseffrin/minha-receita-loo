@@ -36,6 +36,7 @@ public class Routes {
 
         /* administrator */
         get("/adm", Administrator::admArea, engine);
+        get("/admRecipeDetail/:id", Administrator::recipeDetail, engine);
 
     }
 }

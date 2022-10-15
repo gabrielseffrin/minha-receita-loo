@@ -40,25 +40,23 @@
             <div class="row row-cols-1 row-cols-md-2 g-4">
 
                 #foreach($recipe in $recipesForApprove)
-
-                <div class="col">
-                    <a href="/recipe/$recipe.getId()">
-                        <div class="card">
-                            <img src="https://i.imgur.com/h7WUdvz.jpeg" class="card-img-top"
-                                alt="Hollywood Sign on The Hill" />
-                            <div class="card-body">
-                                <h5 class="card-title">$recipe.getNameRecipe()</h5>
-                                <p class="card-text">
-                                    $recipe.getIngredients().
-                                </p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">Writen by: $recipe.getOwner().getName()</small>
+                    <a href="/admRecipeDetail/$recipe.getId()">
+                        <div class="card mb-3" style="max-width: 540px;">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="https://i.imgur.com/h7WUdvz.jpeg" class="card-img-top"
+                                        alt="imagem padrão" />
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">$recipe.getNameRecipe()</h5>
+                                            <p class="card-text"> $recipe.getIngredients().</p>
+                                        <p class="card-text"><small class="text-muted">Writen by: $recipe.getOwner().getName()</small></p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </a>
-                </div>
-
                 #end
 
             </div>
