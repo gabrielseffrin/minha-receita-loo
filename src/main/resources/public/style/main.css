@@ -1,0 +1,24 @@
+@import url(receitas.css);
+
+header {
+	text-align: center;
+	margin-bottom: 5%;
+}
+
+footer {
+	bottom: 0;
+}
+
+#descricao {
+	text-align: justify;
+}
+
+#start {
+	margin: auto;
+	margin-top: 15%;
+	text-align: center;
+}
+
+.form-floating {
+	width: 40%;
+}
