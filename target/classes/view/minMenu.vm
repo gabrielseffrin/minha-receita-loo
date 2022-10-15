@@ -1,0 +1,8 @@
+<div class="col-12" id="minhas-receitas-button">
+    <a href="/userRecipes/recipeBook">
+        <button type="button" class="btn btn-info btn-rounded">Minhas receitas</button>
+    </a>
+    <a href="/recipeCreation/recipeCreation">
+        <button type="button" class="btn btn-info btn-rounded">Cadastrar +</button>
+    </a>
+</div>
