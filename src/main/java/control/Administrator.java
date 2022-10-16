@@ -56,9 +56,14 @@ public class Administrator {
         }
 
         String aux = SessionControl.getInstance().getUser().getId() == 1
-                ? "<a href='/approveRecipe' >"
-                        + "<button type='button' class='btn btn-danger text-white'>aprovar receita</button></a>" +
-                        "<a href='/recuseRecipe' ><button type='button' class='btn btn-danger text-white'>aprovar receita</button></a>"
+                ? "" +
+                        "<div class='col-12' id='minhas-receitas-button'>" +
+                        "<a href='/approveRecipe'>" +
+                        "<button type='button' class='btn btn-danger text-white'>aprovar receita</button>" +
+                        "</a>" +
+                        "<a href='/recuseRecipe'>"
+                        + "<button type='button' class='btn btn-danger text-white'>aprovar receita</button>" + "</a>"
+                        + "</div>"
                 : "";
 
         model.put("edit", aux);

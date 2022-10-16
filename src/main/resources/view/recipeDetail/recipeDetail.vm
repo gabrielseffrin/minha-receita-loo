@@ -82,12 +82,14 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12"id="button-adm" >
-                $edit
+            <div class="row">
+                <div class="row" id="minhas-receitas-button">$edit</div>
             </div>
         </div>
-        <div class="container-fluid">
-            <div id="footer"></div>
+        <div class="row">
+            <div class="container-fluid">
+                <div id="footer"></div>
+            </div>
         </div>
     </main>
 </body>
