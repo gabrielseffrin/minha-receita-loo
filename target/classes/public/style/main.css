@@ -22,3 +22,8 @@ footer {
 .form-floating {
 	width: 40%;
 }
+
+#button-adm {
+	text-align: end;
+	margin-bottom: 5%;
+}
