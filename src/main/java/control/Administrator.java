@@ -11,6 +11,7 @@ import org.eclipse.jetty.util.thread.TryExecutor;
 
 import dao.GenericDao;
 import model.Recipe;
+import model.RecipeOwner;
 import spark.ModelAndView;
 
 import dao.DaoAdm;
@@ -55,41 +56,56 @@ public class Administrator {
             System.out.println("erro no banco");
         }
 
-        String aux = SessionControl.getInstance().getUser().getId() == 1
-                ? "" +
-                        "<div class='col-12' id='minhas-receitas-button'>" +
-                        "<a href='/approveRecipe'>" +
-                        "<button type='button' class='btn btn-danger text-white'>aprovar receita</button>" +
-                        "</a>" +
-                        "<a href='/recuseRecipe'>"
-                        + "<button type='button' class='btn btn-danger text-white'>aprovar receita</button>" + "</a>"
-                        + "</div>"
-                : "";
-
-        model.put("edit", aux);
+        /*
+         * String aux = SessionControl.getInstance().getUser().getId() == 1
+         * ? "" +
+         * 
+         * : "";
+         */
+        // model.put("edit", aux);
         model.put("dataRecipe", dataRecipe);
         model.put("recipe", recipe);
-        return new ModelAndView(model, "view/recipeDetail/recipeDetail.vm");
+        return new ModelAndView(model, "view/adm/admRecipeDetail.vm");
     }
 
     public static Object approveRecipe(Request req, Response res) {
 
-        String id = req.queryParams("id");
-        long idd;
+        Recipe recipe = new Recipe();
 
         try {
-            idd = Long.parseLong(id);
-            System.out.println(idd);
+            long id_recipe = Long.parseLong(req.params("id"));
+            GenericDao<Recipe> adm = new GenericDao<>();
+            GenericDao<Recipe> daoRecipe = new GenericDao<>();
+
+            Recipe aux = daoRecipe.getObjectById(recipe, id_recipe);
+            aux.setStatus(true);
+
+            adm.update(aux);
         } catch (Exception e) {
-            // TODO: handle exception
+            System.out.println(e.getMessage());
         }
 
-        res.redirect("");
+        res.redirect("/");
         return "ok";
     }
 
     public static Object recuseRecipe(Request req, Response res) {
-        res.redirect("");
+        Recipe recipe = new Recipe();
+
+        try {
+            long id_recipe = Long.parseLong(req.params("id"));
+            GenericDao<Recipe> adm = new GenericDao<>();
+            GenericDao<Recipe> daoRecipe = new GenericDao<>();
+
+            Recipe aux = daoRecipe.getObjectById(recipe, id_recipe);
+            aux.setStatus(false);
+
+            adm.update(aux);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        res.redirect("/");
         return "ok";
     }
 }

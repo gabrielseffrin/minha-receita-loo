@@ -37,6 +37,7 @@ public class Routes {
         /* administrator */
         get("/adm", Administrator::admArea, engine);
         get("/admRecipeDetail/:id", Administrator::recipeDetail, engine);
-
+        get("/approveRecipe/:id", Administrator::approveRecipe);
+        get("/recuseRecipe/:id", Administrator::recuseRecipe);
     }
 }
