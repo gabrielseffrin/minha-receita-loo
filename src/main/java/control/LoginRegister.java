@@ -46,7 +46,6 @@ public class LoginRegister {
             SessionControl session = SessionControl.getInstance();
             session.setUser(obj);
 
-            System.out.println(session.getUser().getEmail());
         } catch (Exception e) {
             System.out.println("senha ou email incorretos");
         }

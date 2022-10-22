@@ -34,12 +34,20 @@ public class RecipeDetail {
             System.out.println("erro no banco");
         }
 
-        String aux = SessionControl.getInstance().getUser().getId() == recipe.getOwner().getId()
-                ? "<a class='btn btn-danger text-white' style='background-color: #dd4b39;' href='#!' role='button'>" +
-                        "<i class='far fa-edit'></i></a>"
-                : "";
+        // usar um tratamento de erro próprio aqui
 
-        model.put("edit", aux);
+        try {
+            String aux = SessionControl.getInstance().getUser().getId() == recipe.getOwner().getId()
+                    ? "<a class='btn btn-danger text-white' style='background-color: #dd4b39;' href='#!' role='button'>"
+                            +
+                            "<i class='far fa-edit'></i></a>"
+                    : "";
+            model.put("edit", aux);
+
+        } catch (Exception e) {
+            model.put("edit", "");
+        }
+
         model.put("dataRecipe", dataRecipe);
         model.put("recipe", recipe);
         return new ModelAndView(model, "view/recipeDetail/recipeDetail.vm");
