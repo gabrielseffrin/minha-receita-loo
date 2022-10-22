@@ -34,8 +34,6 @@ public class DaoRecipeOwner extends GenericDao<RecipeOwner> {
                 System.out.println("ListALL - abriu transaction mas falhou");
             }
         }
-
         return objects;
     }
-
 }

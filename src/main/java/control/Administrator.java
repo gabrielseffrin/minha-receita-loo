@@ -7,11 +7,8 @@ import util.FormatList;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import org.eclipse.jetty.util.thread.TryExecutor;
-
 import dao.GenericDao;
 import model.Recipe;
-import model.RecipeOwner;
 import spark.ModelAndView;
 
 import dao.DaoAdm;
@@ -56,13 +53,6 @@ public class Administrator {
             System.out.println("erro no banco");
         }
 
-        /*
-         * String aux = SessionControl.getInstance().getUser().getId() == 1
-         * ? "" +
-         * 
-         * : "";
-         */
-        // model.put("edit", aux);
         model.put("dataRecipe", dataRecipe);
         model.put("recipe", recipe);
         return new ModelAndView(model, "view/adm/admRecipeDetail.vm");
