@@ -4,6 +4,7 @@ import dao.GenericDao;
 import model.Recipe;
 import spark.Request;
 import spark.Response;
+import util.MyException;
 
 public class CreateRecipe {
 
@@ -35,7 +36,10 @@ public class CreateRecipe {
                 recipe.setOwner(session.getUser());
 
                 GenericDao<Recipe> gDaoRecipe = new GenericDao<>();
-                gDaoRecipe.save(recipe);
+                if (ingredients.contains(";") && preparationMode.contains(";"))
+                    gDaoRecipe.save(recipe);
+                else
+                    throw new MyException("Deve conter ';' para identação");
 
             } catch (Exception e) {
                 System.out.println(e.getMessage());
